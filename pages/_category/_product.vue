@@ -1,5 +1,5 @@
 <template>
-    <productpage v-if="product"></productpage>
+    <productpage v-if="product" :product="product"></productpage>
 </template>
 
 
@@ -12,7 +12,7 @@ export default {
     name:'producto',
 
     head() {
-         let canonical ='https://matesfabi.com'+this.$route.path;
+         let canonical ='https://mayoristadelmate.com'+this.$route.path;
     
         return {
              link:[

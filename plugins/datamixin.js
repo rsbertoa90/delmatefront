@@ -6,14 +6,14 @@ Vue.mixin({
     methods:{
       orderArray(array,field)
       {
-        //console.log(field);
+      
         return array.sort((a,b) => {
           if(a[field] < b[field]){
-           // console.log(a[field],b[field])
+         
             return -1
           }
           if(a[field] > b[field]){
-           // console.log(a[field],b[field])
+     
             return 1
           }
           return 0;
@@ -84,18 +84,17 @@ Vue.mixin({
          
            let res = this.$axios.defaults.baseURL == 'http://localhost:8000/api' ;
 
-          /*   console.log('devmode', this.$axios.defaults.baseURL, res); */
-            return res;
+             return res;
           },
          backendpath() {
           
-           let res = this.devmode ? 'http://127.0.0.1:8000' : 'https://back.matesfabi.com';
-       /*    console.log('backendpath',res); */
+           let res = this.devmode ? 'http://127.0.0.1:8000' : 'https://back.mayoristadelmate.com';
+      
            return res;
          },
        noImage()
        {
-        return this.imagePath('/storage/images/app/no-photo.png');
+        return this.imagePath('/storage/images/app/no-image.png');
         image
        },
        loadingImage(){
@@ -111,6 +110,7 @@ Vue.mixin({
          return this.$store.getters.getUser;
        },
        admin(){
+      
         return this.user && this.user.role_id < 3;
        },
      isSuper() {

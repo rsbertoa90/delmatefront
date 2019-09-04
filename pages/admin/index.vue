@@ -9,7 +9,7 @@ export default {
     middleware:[checkAdmin],
     components:{orders},
     layout:'admin',
-     name:'adminOrders'
+    name:'adminOrders'
    
 }
 </script>

@@ -12,7 +12,7 @@
             </td>
              <td colspan="6">
                 <textarea placeholder="NOMBRE" rows="1" type="text" v-model.lazy="product.name" 
-                @change="saveChange(product,'name')" class="form-control"></textarea>
+                @change="saveChange(product,'name')" class="w-100 form-control"></textarea>
             </td>
            
         </tr>
@@ -28,7 +28,7 @@
                     <option v-for="category in categories" 
                             :key="category.id" 
                             :value="category.id"
-                            :selected ="product.category.id == category.id"
+                            :selected ="product.category_id == category.id"
                             > 
                         {{category.name}} 
                     </option>
@@ -61,9 +61,7 @@
                 <button @click.prevent="toggleOffer(product)" class="btn btn-sm m-1" :class="{'btn-secondary' : !product.offer, 'btn-info': product.offer}">
                     Oferta
                 </button>
-                <button @click.prevent="toggleFirst(product)" class="btn btn-sm m-1" :class="{'btn-secondary' : !product.first, 'btn-warning': product.first}">
-                    Ver primero
-                </button>
+              
                 
             </td>
             <image-modal v-if="product && showModal" :product="product"  

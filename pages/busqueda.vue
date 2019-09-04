@@ -1,18 +1,12 @@
 <template>
-    
-    <appComponent></appComponent>
-
+    <div>
+        <searchResults></searchResults>
+    </div>
 </template>
 
 <script>
-import appComponent from '@/components/search/Results.vue';
-import metaMixin from '@/plugins/metadataMixin.js';
-
+import searchResults from '@/components/search-results/SearchResults.vue';
 export default {
-    
-    name:'busqueda',
-    layout:'categories',
-    mixins:[metaMixin],
-    components:{appComponent}
+    components:{searchResults}
 }
 </script>

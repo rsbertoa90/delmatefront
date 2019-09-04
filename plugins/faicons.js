@@ -21,6 +21,7 @@ import {
 from '@fortawesome/free-regular-svg-icons'
 
 import {
+  
   faList,
   faClock,
   faDollarSign,
@@ -56,11 +57,12 @@ import {
   faArrowUp,
   faHandHoldingUsd,
   faCheck,
+  faSignOutAlt,
 
 } from '@fortawesome/free-solid-svg-icons'
 
 
-library.add(faPauseCircle,
+library.add(faPauseCircle,faSignOutAlt,
   faTh,
   faListUl,
   faArrowUp,

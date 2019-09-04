@@ -5,16 +5,9 @@
             <app-nav></app-nav>
         </header>    
         <div class=" row">
-            <div class="col-3" v-if="$mq=='lg'">
-                <div class="d-flex flex-column">
-                    <categories-pannel></categories-pannel>
-                    <div class="redlimpbannercontainer">
-                        <redlimpbanner></redlimpbanner>
-                    </div>
-                </div>
-            </div>
+          
           <!--   <div class="nav-space" :class="{'admin-nav-space':user && user.role_id<3}" v-if="$mq=='lg'"></div> -->
-            <div class="col-12 col-lg-9 p-0 m-auto p-lg-4 ">
+            <div class="col-12 p-0 m-auto p-lg-4 ">
                 <transition enter-active-class="animated slideInLeft fast faster ">
                         <nuxt></nuxt>
                 </transition>
@@ -23,13 +16,13 @@
         </div>
       
 
-        <app-footer v-if="$mq=='lg'"></app-footer>
+      <!--   <app-footer v-if="$mq=='lg'"></app-footer> -->
         <momwebfooter></momwebfooter>
          <whatsappBtn v-if="!admin"></whatsappBtn>
      
-        
+       
         <total-bouncer :total="total" v-if="$route.path != '/carrito'" ></total-bouncer>
-
+ 
      
             <apploading v-if="loading || firstload"></apploading>
 
@@ -38,18 +31,18 @@
 </template>
 
 <script>
-/* 
-import totalBouncer from './layout/total-bouncer/total-bouncer.vue';*/
+
+import totalBouncer from '@/components/layout/total-bouncer/total-bouncer.vue';
 import momwebfooter from '@/components/layout/footer/momwebfooter.vue'
-import redlimpbanner from '@/components/banners/redlimp.vue'
+
 import whatsappBtn from '@/components/layout/whatsapp.vue'; 
 import appFooter from '@/components/layout/footer/Footer.vue';
-import appNav from '@/components/layout/Navbar.vue';
-import totalBouncer from '@/components/layout/total-bouncer/total-bouncer.vue'; 
+import appNav from '@/components/layout/header.vue';
+ 
 import apploading from '@/components/layout/loading.vue';
-import categoriesPannel from '@/components/layout/Side-menu.vue';
+
 export default {
-    components:{momwebfooter,redlimpbanner,appNav,appFooter,whatsappBtn,totalBouncer,apploading,categoriesPannel},
+    components:{momwebfooter,appNav,appFooter,whatsappBtn,apploading,totalBouncer},
     computed:{
         user(){
             return this.$store.getters.getUser;

@@ -7,7 +7,7 @@ import shrinkRay from 'shrink-ray-current'
 
 export default {
   server: {
-    port: 3004 // default: 3000
+    port: 3000 // default: 3000
     /* host: '0.0.0.0', */ // default: localhost
   },
 
@@ -69,7 +69,7 @@ export default {
       { name: "theme-color", content: "#b2037a" },
       {
         property: "og:image",
-        content: "https://back.matesfabi.com/storage/images/app/logo.png"
+        content: "https://back.mayoristadelmate.com/storage/images/app/logo.png"
       },
       { property: "og:title", content: "Mates Fabi" },
       { charset: "utf-8" },
@@ -84,7 +84,7 @@ export default {
       },
       {
         rel: "preconnect",
-        href: "https://back.matesfabi.com"
+        href: "https://back.mayoristadelmate.com"
       }
     ],
     script: [
@@ -129,10 +129,7 @@ export default {
     "./plugins/v-lazy-image.js",
     "./plugins/filters.js",
     "./plugins/faicons.js",
-    {
-      src: "./plugins/v-click-outside.js",
-      ssr: false
-    },
+   
     { src: "./plugins/v-touch-events.js", ssr: false },
     { src: "./plugins/swal.js", ssr: false },
     { src: "./plugins/awesome-swiper.js", ssr: false },
@@ -186,7 +183,7 @@ export default {
 */
   webfontloader: {
     google: {
-      families: ["Raleway"]
+      families: ["Niramit"]
     },
     custom: {
       families: ["fontawesome"],
@@ -205,7 +202,7 @@ export default {
   axios: {
     baseURL:
       process.env.NODE_ENV == "production"
-        ? "https://back.matesfabi.com/api"
+        ? "https://back.mayoristadelmate.com/api"
         : "http://localhost:8000/api"
   },
 

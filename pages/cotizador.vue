@@ -1,16 +1,17 @@
 <template>
-    
-    <appComponent></appComponent>
-
+    <div>
+        <appcotizer></appcotizer>
+    </div>
 </template>
 
 <script>
-import appComponent from '@/components/cotizer/Cotizer.vue';
-import metaMixin from '@/plugins/metadataMixin.js';
+import appcotizer from '@/components/cotizer/Cotizer.vue';
 export default {
-    name:'cotizador',
-    layout:'categories',
-    mixins:[metaMixin],
-    components:{appComponent}
+    components:{appcotizer}
 }
 </script>
+
+
+<style lang="scss" scoped>
+
+</style>

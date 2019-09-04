@@ -1,6 +1,6 @@
 <template>
 <div v-if="product && !hidePrices">
-    <button v-if="!product.units || product.units < 1 " type="button"  class="btn btn-lg btn-outline-success" @click="addProduct"> 
+    <button v-if="!product.units || product.units < 1 " type="button"  class="btn btn-block btn-outline-info" @click="addProduct"> 
         <fa-icon icon="shopping-cart"></fa-icon> 
         Comprar
     </button>    

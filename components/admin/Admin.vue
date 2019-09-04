@@ -166,7 +166,7 @@ import paginator from './admin/paginator.vue';
                         
                         if (prop && this.selector.id != 'all'){
                             var filtered = this.products.filter(prod => {
-                                    return prod[prop].id == this.selector.id;     
+                                    return prod.category_id == this.selector.id;     
                             });
                             return this.orderArray(filtered,this.orderBy)
                         } else{ return this.orderArray(this.products,this.orderBy) }
@@ -195,15 +195,7 @@ import paginator from './admin/paginator.vue';
 
         },
         methods : {
-            setProducts(){
-                let res = [];
-                if (this.categories){
-                    this.categories.forEach(c => {
-                        res = res.concat(c.products);
-                    });
-                }
-                this.products = res;
-            },
+           
             resetFilters(){
               /*   this.resetCheckboxes(); */
                 this.selectedPage = 1;
@@ -225,7 +217,11 @@ import paginator from './admin/paginator.vue';
             searchComparision(term,prod){
                   let prodName = prod.name.toLowerCase().trim();
                   term = term.toLowerCase().trim();
-                  let categoryName = prod.category.name.toLowerCase().trim();
+                  let cat = this.categories.find(c => {
+                      return c.id == prod.category_id;
+                  })
+
+                  let categoryName = cat.name.toLowerCase().trim();
                 
                   let code = prod.code.toLowerCase().trim();
 
@@ -274,7 +270,10 @@ import paginator from './admin/paginator.vue';
          
             refresh(){
                 var vm = this;
-                this.$store.dispatch('fetchCategories').then(()=>{this.setProducts()});
+                this.$axios.get('/products')
+                    .then(res => {
+                        vm.products=res.data;
+                    })
             },
             saveChange(product,field){
                 var data = {

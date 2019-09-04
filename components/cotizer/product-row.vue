@@ -17,6 +17,7 @@
                 <span class="text-success font-weight-bold" v-if="config && !config.hide_prices">  ${{(product.price * product.units) | price}} </span>
                 
             </div>
+            <div v-else style="width:100%; height:15px;"></div>
             <input v-if="!hidePrices" type="number" min="0" class="form-control " v-model="product.units" @blur="setList">
             <div v-if="!hidePrices" class="controls d-flex justify-content-between p-2">
                 <span  @click="susone">

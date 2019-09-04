@@ -1,16 +1,11 @@
 <template>
-    
-    <appComponent></appComponent>
-
+    <shoppingCart></shoppingCart>
 </template>
 
+
 <script>
-import appComponent from '@/components/shoppingCart/ShoppingCart.vue';
-import metaMixin from '@/plugins/metadataMixin.js';
+import shoppingCart from '@/components/shoppingCart/ShoppingCart.vue'
 export default {
-    name:'carrito',
-    layout:'categories',
-    mixins:[metaMixin],
-    components:{appComponent}
+    components:{shoppingCart}
 }
 </script>

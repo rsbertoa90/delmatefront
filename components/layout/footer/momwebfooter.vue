@@ -23,7 +23,7 @@
          color:#fff;
             font-weight: bold;
             font-size: .85rem;
-        padding:10px 30px;
+        padding:10px 60px;
         
         a,.fa{
             color:#fff;

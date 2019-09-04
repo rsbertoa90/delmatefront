@@ -50,8 +50,6 @@
 
 <script>
 export default {
-     metaInfo(){return{
-        title: 'Login'   }},
     data(){
         return{
             formData:{
@@ -69,11 +67,12 @@ export default {
     methods:{
         send()
         {
-            this.$http.post('/login',this.formData)
+            this.$axios.post('/login',this.formData)
                 .then(res => {
                     if (res.data){
-                    // Simulate an HTTP redirect:
-                    window.location.replace("/admin");
+                        this.$store.dispatch('fetchUser').then(r=>{
+                            this.$router.go('/admin');
+                        });
                     }
                     
                 });
@@ -81,7 +80,8 @@ export default {
     },
     watch:{
         user(){
-            if (this.user && this.user.role_id < 3 ){
+            if (this.user && this.user.role_id < 3)
+            {
                 this.$router.push('/admin');
             }
         }

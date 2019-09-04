@@ -5,13 +5,13 @@
             <nuxt />
         </no-ssr>
         
-                 <apploading v-if="loading || firstload"></apploading>
+        <apploading v-if="loading || firstload"></apploading>
      
     </div>
 </template>
 
 <script>
-import navbar from '@/components/layout/Navbar.vue'
+import navbar from '@/components/layout/header.vue'
 import apploading from '@/components/layout/loading.vue';
 export default {
   components:{navbar,apploading},

@@ -53,7 +53,7 @@
                     <tbody>
                         <tr>
                             <td colspan="3">
-                                <input type="text" class="form-control" v-model="searchTerm">
+                                <input type="text" placeholder="BUSCAR" class="form-control" v-model="searchTerm">
                             </td>
                         </tr>
                         <tr  v-for="order in filteredOrders" 
@@ -62,7 +62,7 @@
                                 style="cursor:pointer"
                                 :class="{'bg-info' : order == selected}">
                             <td>{{order.created_at | datetime}}</td>
-                            <td>{{order.client}}</td>
+                            <td>{{order.name}}</td>
                             <td> <input type="checkbox" v-model="order.viewed" @change="viewed(order)" class="form-control checkbox"> </td>
                         </tr>
                     </tbody>
@@ -82,6 +82,7 @@
 <script>
 import appOrder from './Order.vue';
 export default {
+    name:'admordrs',
      metaInfo(){return{
         title: 'ADMIN'   }},
         
@@ -119,19 +120,10 @@ export default {
         },
         changestatus(status)
         {
-            if(!this.canceledLoaded && status=='cancelado'){
-                this.$store.commit('setLoading',true);
-                this.canceledLoaded=true;
-                this.$store.dispatch('fetchCanceledOrders')
-                    .then( ()=>{
-                        this.status = status;
-                        this.selected = null;
-                        this.$store.commit('setLoading',false);
-                    })
-            }else{
+           
                 this.status = status;
                 this.selected = null;
-            }
+            
         }
     },
     mounted(){
@@ -167,9 +159,9 @@ export default {
                     let st = this.searchTerm.trim().toLowerCase();
                     if (st){
                         res = res.filter(order => {
-                            if(order.client){
+                            if(order.name){
 
-                                return order.client.trim().toLowerCase().indexOf(st) > -1 ;
+                                return order.name.trim().toLowerCase().indexOf(st) > -1 ;
                             }
                         });
                     }

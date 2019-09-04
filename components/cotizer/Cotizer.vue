@@ -4,17 +4,15 @@
             <h1 class="col-12 col-lg-6 text-center">Hace tu pedido Online</h1>
             <div class="col-12 col-lg-6">
                 <a href="/descargar-lista-de-precios" target="_blank" class=" btn btn-download" v-if="!hidePrices"> <span class="fa fa-download"></span> Lista de precios</a>
-                <a href="/descargar-catalogo-digital" target="_blank" class=" btn btn-download" v-if="!hidePrices"> <span class="fa fa-download"></span> Catalogo con precios</a>
-                <a href="/descargar-catalogo-sin-precios" target="_blank" class=" btn btn-download" v-if="!hidePrices"> <span class="fa fa-download"></span> Catalogo sin precios</a>
+                <a href="/descargar-catalogo-digital" target="_blank" class=" btn btn-download" v-if="!hidePrices"> <span class="fa fa-download"></span> Catalogo con digital</a>         
             </div>
         </div>
         <div class="row mt-2 d-flex flex-column mb-4 mt-4" v-if="configs">
            
                 <span><i class="fa fa-check fucsia"></i>  Los precios publicados son sin IVA</span>
-                <span><i class="fa fa-check fucsia"></i> Acercándote personalmente a las sucursales la compra mínima es de ${{configs.minbuy}}.</span>
+                <span><i class="fa fa-check fucsia"></i> Acercándote personalmente a la sucursal la compra mínima es de ${{configs.minbuy}}.</span>
                 <span><i class="fa fa-check fucsia"></i> La Compra minima <b> ONLINE </b> es de ${{configs.minbuy_ship}}</span>
                 <span><i class="fa fa-check fucsia"></i> Los despachos o retiros de las compras online se realizan de 2 a 6 días hábiles luego del informe y acreditación de pago.</span>
-                <span><i class="fa fa-check fucsia"></i> <b> Envío: </b> la elección del trasporte y el costo del mismo corre a cargo del comprador. Mates Fabi lo lleva sin cargo  desde la fabrica hasta el transporte de tu elección.</span>
                 <span><i class="fa fa-check fucsia"></i> <b> Formas de pago: </b> Efectivo o Deposito /Transferencia Bancaria.</span>
            
         </div>
@@ -29,7 +27,7 @@
             
              
         <div id="accordion">
-            <div v-for="category in categories" 
+            <div v-for="category in filteredCats" 
                   :key="'category-'+category.id" 
                   class="card flex-wrap">
                 <div class="card-header" :id="'card'+category.id">
@@ -105,6 +103,7 @@ import codeSelector from './code-selector.vue';
        
      
         computed: {
+            
             ...mapGetters({
                 categories : 'getCategories',
                user : 'getUser',
@@ -113,6 +112,21 @@ import codeSelector from './code-selector.vue';
                 list:'getList',
                 tutoseen:'getTutoSeen'
             }),
+               filteredCats()
+            {
+                let vm=this;
+                if(this.categories)
+                {
+                    return this.categories.filter(c => {
+                        let np = vm.notPaused(c.products);
+                        if(np && np.length > 1)
+                        {
+                            return true;
+                        }else{return false;}
+                       
+                    })
+                }
+            }
             
           
         },

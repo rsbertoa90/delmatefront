@@ -22,7 +22,7 @@
                     <tr v-for="(d, key) in sortedData" :key="key" @click="selected=d" style="cursor:pointer;">
                         <td>{{d.product.name}}</td>
                         <td>{{d.presence}} </td>
-                        <td>{{d.qty}}</td>
+                        <td>{{d.units}}</td>
                         <td>${{d.total | price}}</td>
                     </tr>
                     
@@ -99,8 +99,8 @@ export default {
             
             res.forEach(o =>{
                 let total = 0;
-                o.order_items.forEach(op => {
-                    total+=(op.price*op.qty);
+                o.order_products.forEach(op => {
+                    total+=(op.price*op.units);
                 });
                 
                 o.total=total;
@@ -120,14 +120,14 @@ export default {
             {
                 let res = [];
                 this.orders.forEach(order => {
-                    order.order_items.forEach(op => {
+                    order.order_products.forEach(op => {
                         let isNew = true;
                         res.forEach(o => {
                             if (op.product_id == o.product_id)
                             {
                                 isNew =false;
-                                o.qty+=op.qty;
-                                o.total+=op.qty*op.price;
+                                o.units+=op.units;
+                                o.total+=op.units*op.price;
                                 o.presence++;
                             }
                         });
@@ -137,8 +137,8 @@ export default {
                                 product_id:op.product_id,
                                 product:op.product,
                                 presence:1,
-                                qty:op.qty,
-                                total:op.qty*op.price
+                                qty:op.units,
+                                total:op.units*op.price
                             });
                         }
                     });

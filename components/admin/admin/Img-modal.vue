@@ -29,7 +29,7 @@
                     <button v-if="product.images[0]" class="btn btn-sm btn-danger close-button"
                                         @click.prevent="deleteImage(product.images[i])">X</button>
 
-                    <div class="order-select"  v-if="product.images.length > 1">
+                  <!--   <div class="order-select"  v-if="product.images.length > 1">
                         <label @click="orderChange(product.images[i],index)"  v-for="index in product.images.length" :key="index"
                                 class="btn btn-sm"
                                 :class="{'btn-success' : product.images[i].order == index,
@@ -37,7 +37,7 @@
                                 >
                             {{index}}
                         </label>
-                    </div>
+                    </div> -->
 
                  </div>
                 <form enctype="multipart/form-data" name="uploader" >

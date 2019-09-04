@@ -4,14 +4,14 @@
 
 
 <script>
-import appcategory from '@/components/category/Category.vue';
+import appcategory from '@/components/category/categoryIndex.vue';
 export default {
     name:'category-decider',
     components:{appcategory},
     layout:'categories',
     
     head() {
-        let canonical ='https://matesfabi.com'+this.$route.path;
+        let canonical ='https://mayoristadelmate.com'+this.$route.path;
         
         return {
               link:[
@@ -43,6 +43,7 @@ export default {
                 
                  
                   if(res){
+                    
                       return res;
                   }else{
                       this.$router.push('/');

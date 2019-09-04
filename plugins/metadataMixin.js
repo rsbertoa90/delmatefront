@@ -1,6 +1,6 @@
 export default {
     head() {
-        let canonical ='https://matesfabi.com'+this.$route.path;
+        let canonical ='https://mayoristadelmate.com'+this.$route.path;
        // console.log(canonical);
         return {
             link:[

@@ -93,8 +93,8 @@ export default {
             
             res.forEach(o =>{
                 let total = 0;
-                o.order_items.forEach(op => {
-                    total+=(op.price*op.qty);
+                o.order_products.forEach(op => {
+                    total+=(op.price*op.units);
                 });
                 
                 o.total=total;

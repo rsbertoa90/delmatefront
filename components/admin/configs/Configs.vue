@@ -28,7 +28,7 @@
         </div>
 
         <div class="mt-4 p-2">
-            <div class="col-4">
+          <!--   <div class="col-4">
                 <select class="form-control" v-model="catalogoreemplazar" >
                     <option value="con">
                         Con precios
@@ -37,7 +37,7 @@
                         Sin precios
                     </option>
                 </select>
-            </div>
+            </div> -->
             <div>
                 <input type="hidden" name="_token" :value="csrf">
                 <label class="btn btn-md btn-outline-info mt-3">Subir catalogo comprimido
