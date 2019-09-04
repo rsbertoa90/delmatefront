@@ -141,7 +141,7 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
-    // '@nuxtjs/pwa',
+    '@nuxtjs/pwa',
     "nuxt-webfontloader",
     ["nuxt-compress"],
     /*    ['@nuxtjs/google-analytics', {
@@ -165,22 +165,20 @@ export default {
     "@nuxtjs/auth"
   ],
 
-  /*
+  
   manifest: {
-    name: "Mates Fabi",
+    name: "Mayorista del Mate",
     lang: "es",
-    theme_color: "#b2037a"
+    theme_color: "#ff2080",
+    background_color: "#ff2080"
   },
 
      workbox: {
-    config: {
-      debug: true
-    },
     offlinePage: "/offline.html",
     offlineAssets: ["/offline.html", "/favicon.ico"]
   },
 
-*/
+
   webfontloader: {
     google: {
       families: ["Niramit"]
