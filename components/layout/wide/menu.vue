@@ -7,18 +7,18 @@
                 <fa-icon icon="home"></fa-icon> Home 
             </router-link>
         </li>
-        <li v-if="config && !config.hide_prices" class="nav-item text-white" :class="{'focus':path=='/cotizador'}">
+        <li v-if="!hidePrices"  class="nav-item text-white" :class="{'focus':path=='/cotizador'}">
             <router-link class="nav-link " to="/cotizador">
                 <fa-icon icon="shopping-cart"></fa-icon> Cotizador 
             </router-link>
         </li>
 
-        <li class="nav-item text-white" v-if="config && !config.hide_prices">
+        <li class="nav-item text-white"  v-if="!hidePrices">
             <a class="nav-link " target="_blank" href="/descargar-lista-de-precios" >
                 <fa-icon icon="download"></fa-icon> Lista de precios
             </a> 
         </li>
-        <li class="nav-item text-white">
+        <li class="nav-item text-white" v-if="!hidePrices">
             <a class="nav-link " target="_blank" rel="noreferrer"
                 href="/descargar-catalogo-digital">
                     <fa-icon icon="download"></fa-icon> Catalogo digital
