@@ -6,7 +6,10 @@
 
 <script>
 import appcotizer from '@/components/cotizer/Cotizer.vue';
+import metaMixin from '@/plugins/metadataMixin.js';
 export default {
+      mixins:[metaMixin],
+      name:'cotizador',
     components:{appcotizer}
 }
 </script>
