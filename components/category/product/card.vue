@@ -57,7 +57,10 @@ export default {
 
 
 <style lang="scss" scoped>
-
+h2{
+    font-size: 28px;
+    
+}
 img{
     width:100%;
 }
@@ -75,6 +78,10 @@ img{
 
     .image-container{
         width:280px;
+        height: 280px;
+        display: flex;
+        justify-content: center;
+        align-items:center;
         overflow: hidden;
         position: relative;
         img{

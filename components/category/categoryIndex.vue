@@ -9,9 +9,10 @@
           </div>
           <br>
           <div class="row">
-                    <div v-for="product in notPaused(category.products)" :key="product.id" class="mt-4 col-12 col-lg-3 border-grey">
-                     
-                            <productCard :product="product" class=" "></productCard>
+                    <div v-for="product in notPaused(category.products)" :key="product.id" class="mt-4 col-12 col-lg-3 p-2 ">
+                            <div class="shadow">
+                                <productCard :product="product" class=" "></productCard>
+                            </div>
                 
                     </div>
           </div>
@@ -57,3 +58,10 @@ export default {
     }
 }
 </script>
+
+
+<style lang="scss" scoped>
+.shadow{
+    box-shadow: 0px 5px 10px #0006;
+}
+</style>
