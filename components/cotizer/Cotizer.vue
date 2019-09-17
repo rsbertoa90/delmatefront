@@ -75,9 +75,9 @@
         
         <hr>
         
-       <div v-if="!tutoseen">
+      <!--  <div v-if="!tutoseen">
             <tutorial v-if="!admin"></tutorial>
-       </div>
+       </div> -->
     </div>
 </template>
 
