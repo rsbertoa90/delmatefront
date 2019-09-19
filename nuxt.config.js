@@ -71,10 +71,10 @@ export default {
         property: "og:image",
         content: "https://back.mayoristadelmate.com/storage/images/app/logo.png"
       },
-      { property: "og:title", content: "Mates Fabi" },
+      { property: "og:title", content: "Mayorista del Mate" },
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: pkg.description }
+      { hid: "description", name: "description", content:' Mayorista del Mate' }
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },

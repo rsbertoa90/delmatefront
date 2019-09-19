@@ -9,8 +9,11 @@
                         :alt="product.name" />
                 </div>
                 <div class="col-12 row" v-if="product.images[1]">
-                    <div class="col-4" v-for="i in product.images.length" :key="i" @click="selectedImage=i-1">
+                    <div class="col-4 img-container" v-for="i in product.images.length" :key="i" @click="selectedImage=i-1">
                         <v-lazy-image :src="imagePath(product.images[i-1])" :alt="product.name"  />
+                        <div class="price-badge">
+                            <span itemprop="price">  ${{product.price}} </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -19,10 +22,6 @@
                     <div class="d-flex flex-column">
                         <h1 itemprop="name"> {{product.name | ucFirst}} </h1>
                         <span class="text-secondary"> {{product.category.name |ucFirst}} </span>
-                    </div>
-                    <div  class="d-flex align-items-center" v-if="config && !config.hide_prices">
-                        <h2 itemprop="price">  ${{product.price}} </h2>
-                        <h5> <del class="text-secondary ml-2"> ${{product.price*1.4 |price}} </del> </h5>
                     </div>
                     <div class="d-flex flex-column mt-3" v-if="product.description">
                         <h4>Sobre el producto:</h4>
@@ -123,7 +122,14 @@ export default {
 </script>
 
 
-<style scope>
+<style scoped lang="scss">
+.img-container{
+    position:relative;
+    .price-badge{
+        position:absolute;
+
+    }
+}
     .fa,.fas{
         font-size: 1.5rem;
     }

@@ -3,12 +3,18 @@
         <h1 class="mb-4">{{product.name | ucFirst}}</h1>
         <div class="row">
             <div class="col-12 offset-lg-2 col-lg-4">
-
-                <v-lazy-image v-if="product.images[0]" :src="imagePath(product.images[0])" :alt="product.name">
-                </v-lazy-image>
-                
-                <v-lazy-image v-else :src="noImage" :alt="product.name">
-                </v-lazy-image>
+                <div class="img-container">
+                    <v-lazy-image v-if="product.images[0]" :src="imagePath(product.images[0])" :alt="product.name">
+                    </v-lazy-image>
+                    
+                    <v-lazy-image v-else :src="noImage" :alt="product.name">
+                    </v-lazy-image>
+                    
+                    <div class="price-badge" v-if="config && !config.hide_prices">
+                        <v-lazy-image :src="imagePath('/storage/images/app/price-badge.png')"></v-lazy-image>
+                        <span class="price">${{product.price|price}}</span>
+                    </div>
+                </div>
             
             </div>
             <div class="col-12  col-lg-4 mt-4 mt-lg-0">
@@ -69,9 +75,30 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
     img{
         width:100%;
-        border:1px solid #868686;
+       
     }
+
+     .price-badge{
+            position:absolute;
+            top:0;
+            right:10px;
+            width:110px;
+            height: 110px;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            .price{
+                position: absolute;
+                color:#fff;
+                font-size: 1.85rem;
+            }
+        }
+
+        .img-container{
+            position:relative;
+            box-shadow: 0px 5px 10px #0006;
+        }
 </style>

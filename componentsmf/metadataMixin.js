@@ -1,13 +1,23 @@
 export default {
-    metaInfo() {
-        return {
-            title: this.metatitle,
-            meta: [
-                { name: 'description', content: this.metadescription }
+    head() {
+      let canonical = 'https://mayoristadelmate.com' + this.$route.path;
+      // console.log(canonical);
+      return {
+        link: [{
+          rel: 'canonical',
+          href: canonical
+        }],
+        titleTemplate: this.metatitle,
+        meta: [{
+            name: 'description',
+            content: this.metadescription,
+            hid: 'description'
+          }
 
-            ]
-        }
+        ],
+      }
     },
+  
     computed: {
         metadata() {
             let page = this.$route.name;
