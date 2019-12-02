@@ -3,12 +3,15 @@
 
         <tr>
             <td rowspan="2">
-                <img v-if="product.images && product.images.length > 0" 
-                    :src="imagePath(product.images[0])" 
-                    style="width :150px" 
-                    :alt="product.name" 
-                    @click="imgModal()">
-                <img v-else :src="noImage" :alt="product.name"  @click="imgModal(product)">
+                <div class="relative">
+                    <span class="pausedoverlay" v-if="product.paused">PAUSADO</span>
+                    <img v-if="product.images && product.images.length > 0" 
+                        :src="imagePath(product.images[0])" 
+                        style="width :150px" 
+                        :alt="product.name" 
+                        @click="imgModal()">
+                    <img v-else :src="noImage" :alt="product.name"  @click="imgModal(product)">
+                </div>
             </td>
              <td colspan="6">
                 <textarea placeholder="NOMBRE" rows="1" type="text" v-model.lazy="product.name" 
@@ -207,7 +210,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    
+    .pausedoverlay{
+        position: absolute;
+        top:30%;
+        left:30%;
+        font-size: 25px;
+        background-color: #cccc;
+        color:blue;
+        font-weight: bold;
+    }
 .relative{
     position:relative;
 }
