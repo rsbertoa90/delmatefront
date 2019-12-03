@@ -3,7 +3,7 @@
         <h1 class="mb-4">{{product.name | ucFirst}}</h1>
         <div class="row">
             <div class="col-12 offset-lg-2 col-lg-4">
-                <div class="img-container">
+                <div class="img-container" @click="show">
                     <v-lazy-image v-if="product.images[0]" :src="imagePath(product.images[0])" :alt="product.name">
                     </v-lazy-image>
                     
@@ -22,14 +22,16 @@
                 <shopButton  class="mt-4" :product="product"></shopButton>
             </div>
         </div>
+        <imgmodal :product="product" ref="modal"></imgmodal>
     </div>
 </template>
 
 <script>
 import info from './info.vue';
+import imgmodal from './Img-modal.vue';
 import shopButton from './shop-button.vue';
 export default {
-    components:{info,shopButton},
+    components:{info,shopButton,imgmodal},
     props:['product'],
     metaInfo(){
         return{
@@ -39,6 +41,24 @@ export default {
                 { vmid: 'description', name: 'description', content: this.metadescription }
             ]
         }
+    },
+    methods:{
+         show(){
+              let product=this.product;
+                if (product.images[0]){
+                   
+                    let element = this.$refs.modal.$el;
+                  
+                    $(element).modal('show');
+                }
+                else
+                {
+                    var content = document.createElement("img");
+                    $(content).attr('src',this.noImage);
+                    content.style.width = '100%';
+                    swal({content : content});
+                }
+            }
     },
     computed:{
 
