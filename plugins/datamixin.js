@@ -119,6 +119,14 @@ Vue.mixin({
        categories() {
          return this.$store.getters.getCategories;
        },
+       npcategories(){
+        return this.categories.filter(c => {
+          if(c.products){
+            let ps = this.notPaused(c.products);
+            return (!c.paused && ps && ps.length > 0)
+          } else {return false}
+        } )
+       },
        total() {
            return this.$store.getters.getTotal;
          },

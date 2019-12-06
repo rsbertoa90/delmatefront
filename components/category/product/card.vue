@@ -112,18 +112,18 @@ img{
             width: 100%;
         }
         .price-badge{
-            position:absolute;
-            top:0;
-            right:10px;
-            width:95px;
+            position: absolute;
+            top: 9px;
+            right: 10px;
+            width: 113px;
             display: flex;
             justify-content: center;
-            align-items:center;
+            align-items: center;
             height: 80px;
             .price{
                 position: absolute;
                 color:#fff;
-                font-size: 1.85rem;
+                font-size: 1.5rem;
             }
         }
     }

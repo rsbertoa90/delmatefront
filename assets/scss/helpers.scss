@@ -27,7 +27,13 @@ img{width:100%}
 .vw100{
   width:100vw;
 }
-
+.fcc{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
 .cursor-pointer{
   cursor: pointer;
 }

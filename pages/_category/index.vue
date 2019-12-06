@@ -34,7 +34,7 @@ export default {
 
                 let res = null;
                     res  = this.categories.find(c => {
-                       let slug = '/'+c.slug;
+                        let slug = '/'+c.slug;
                         slug =slug.replace('//','/');
                         let param = '/' + this.$route.params.category;
                         param =param.replace('//','/');
@@ -42,7 +42,7 @@ export default {
                    });
                 
                  
-                  if(res){
+                  if(res && !res.paused){
                     
                       return res;
                   }else{

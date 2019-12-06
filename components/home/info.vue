@@ -18,7 +18,7 @@
             <fa-icon icon="user-check" class="icon"></fa-icon>
             <div class="d-flex flex-column ml-2">
                 <span> <b>ATENCION PERSONALIZADA</b> </span>
-                <span>Por whatsapp, lunes a sabados de 9hs a 18hs </span>
+                <span> por whatsapp, lunes a sábado de 9hs a 18hs, mientras que en el showroom será de (9-15) para retirar los productos adquiridos. </span>
             </div>
         </div>
     </div>

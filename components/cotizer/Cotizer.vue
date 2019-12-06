@@ -27,7 +27,7 @@
             
              
         <div id="accordion">
-            <div v-for="category in filteredCats" 
+            <div v-for="category in npcategories" 
                   :key="'category-'+category.id" 
                   class="card flex-wrap">
                 <div class="card-header" :id="'card'+category.id">
@@ -112,21 +112,7 @@ import codeSelector from './code-selector.vue';
                 list:'getList',
                 tutoseen:'getTutoSeen'
             }),
-               filteredCats()
-            {
-                let vm=this;
-                if(this.categories)
-                {
-                    return this.categories.filter(c => {
-                        let np = vm.notPaused(c.products);
-                        if(np && np.length > 1)
-                        {
-                            return true;
-                        }else{return false;}
-                       
-                    })
-                }
-            }
+             
             
           
         },

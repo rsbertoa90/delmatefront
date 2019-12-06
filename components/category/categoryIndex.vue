@@ -4,7 +4,7 @@
               <mobile-head v-if="$mq!='lg'" :category="category"></mobile-head>
               <wide-head v-else :category="category"></wide-head>
           </div>
-          <div v-if="category.description" class="text-center mt-4">
+          <div v-if="category.description" class="text-right descri mt-4">
               <p> {{category.description}} </p>
           </div>
           <br>
@@ -61,6 +61,9 @@ export default {
 
 
 <style lang="scss" scoped>
+.descri{
+    font-size: 25px;
+}
 .shadow{
     box-shadow: 0px 5px 10px #0006;
 }
