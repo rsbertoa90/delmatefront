@@ -2,7 +2,9 @@
     <div>
         <home-banners></home-banners>
         <homeInfo class="mt-lg-4"></homeInfo>
-        <homeOffers></homeOffers>
+        <no-ssr>
+            <homeOffers></homeOffers> 
+        </no-ssr>
     </div>
 </template>
 

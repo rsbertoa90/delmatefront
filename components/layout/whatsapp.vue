@@ -1,13 +1,13 @@
 <template>
-<div>
+<div v-if="config && config.whaurl">
     <div class="whatsapp" v-if="$mq=='lg'">
-        <a rel="noreferrer" class="d-flex" target="_blank" href="https://api.whatsapp.com/send?phone=5491165358444&text=Hola!%20te%20escribo%20desde%20la%20pagina%20web,%20tengo%20una%20pregunta" > 
-             <fa-icon :icon="['fab','whatsapp']" class="icon"></fa-icon>  
+        <a rel="noreferrer" class="d-flex" target="_blank" :href="config.whaurl" > 
+             <fa-icon :icon="['fab','whatsapp']" class="icon mt-2"></fa-icon>  
              <span class="text"> ¿Te podemos ayudar? </span> 
        </a>
     </div>
     <div class="mobile-whatsapp" v-else>
-        <a rel="noreferrer" class="d-flex" target="_blank" href="https://api.whatsapp.com/send?phone=5491165358444&text=Hola!%20te%20escribo%20desde%20la%20pagina%20web,%20tengo%20una%20pregunta" > 
+        <a rel="noreferrer" class="d-flex" target="_blank" :href="config.whaurl" > 
              <fa-icon :icon="['fab','whatsapp']" class="icon"></fa-icon>  
        </a>
     </div>

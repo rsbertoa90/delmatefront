@@ -1,15 +1,11 @@
 <template>
     <div class="row p-4" v-if="npcategories">
         <div class="col-12">
-            <div class="image-container fcc">
+            <div class="image-container fcc" v-if="config && config.homeimg">
                 <h1>
-                    <v-lazy-image :src="imagePath('/storage/images/app/mensajeria.jpg')" alt="Mayorista del date"></v-lazy-image>
+                    <v-lazy-image :src="imagePath(config.homeimg)" alt="Mayorista del date"></v-lazy-image>
                 </h1>
-               <!--  <div class="overlayed-text">
-                    <h2>Envio Gratis!</h2>
-                    <h4 class="mt-0">Paga tus productos cuando los recibis!</h4>
-                    <h4 class="mt-4">Capital Federal y Gran Buenos Aires</h4>
-                </div> -->
+             
             </div>
         </div>
         <div class="col-12 d-flex flex-wrapper">

@@ -1,9 +1,9 @@
 <template>
 <div class="row">
     <div class="fcc">
-        <h2>Subir una imagen de portada para HOME</h2>
-        <div class="img-container">
-            <img v-if="config && config.homeimg && !newimg" :src="imagePath(config.homeimg)" alt="">
+        <h2>Cambiar Logo</h2>
+        <div class="img-container col-6 ">
+            <img v-if="config && config.logo && !newimg" :src="imagePath(config.logo)" alt="">
             <img v-if="newimg" :src="newimg" >
         </div>
         <div>
@@ -46,7 +46,7 @@ export default {
                     fdata.append('image',file);
                     
                     // console.log(fdata);
-                    this.$axios.post('/homeimg',fdata)
+                    this.$axios.post('/logo',fdata)
                     .then(()=>{
                         this.$store.dispatch('fetchConfig')
                             .then(()=>{

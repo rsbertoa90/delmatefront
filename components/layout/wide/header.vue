@@ -3,17 +3,17 @@
 
     <div class="row" syle="border-top 2px solid #ccc;">
          
-         <div class="col-2 flex">
-            <router-link to="/" class="left-logo " >
-                <img :src="imagePath('/storage/images/app/logo.png')" alt="Mayorista Del Mate">            
+         <div class="col-2 flex" >
+            <router-link to="/" class="left-logo "  v-if="config && config.logo">
+                <img :src="imagePath(config.logo)" alt="Mayorista Del Mate">            
             </router-link>
         </div>
         <div class="col-5 flex">
             <search-bar></search-bar>
         </div>
-        <div class="col-3 phone flex justify-content-end">
+        <div v-if="config && config.wha" class="col-3 phone flex justify-content-end">
             <fa-icon icon="phone" class="icon fucsia"></fa-icon>
-            11 6535 8444
+            <span>{{config.wha}}</span>
         </div>
         
         <div class="col-1 flex pos-relative mr-1 cart" v-if="config && !config.hide_prices">
@@ -46,17 +46,7 @@ export default {
             showMenu:false
         }
     },
-    computed:{
-        user(){
-            return this.$store.getters.getUser;
-        },
-        list(){
-            return this.$store.getters.getList;
-        },
-        config(){
-            return this.$store.getters.getconfig;
-        }
-    }
+  
 }
 </script>
 

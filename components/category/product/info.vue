@@ -1,24 +1,24 @@
 <template>
-    <div class="info-row">
-        <div class="info-item">
+    <div class="info-row" v-if="config">
+        <div class="info-item"  v-if="config && (config.ship1 || config.ship2) ">
             <fa-icon icon="truck" class="icon"></fa-icon>
             <div class="d-flex flex-column ml-2">
-                <span> <b>ENVIO GRATIS</b> </span>
-                <span>En CABA y Zona Oesta de GBA</span>
+                 <span v-if="config.ship1"> <b>{{config.ship1}}</b> </span>
+                <span v-if="config.ship2">{{config.ship2}}</span>
             </div>
         </div>
-        <div class="info-item">
+        <div class="info-item" v-if="config && (config.pay1 || config.pay2) ">
             <fa-icon icon="dollar-sign" class="icon"></fa-icon>
             <div class="d-flex flex-column ml-2">
-                <span> <b>PAGO CONTRAREEMBOLSO</b> </span>
-                <span>Paga al recibir tus productos</span>
+                <span v-if="config.pay1"> <b>{{config.pay1}}</b> </span>
+                <span v-if="config.pay2">{{config.pay2}}</span>
             </div>
         </div>
-        <div class="info-item">
+        <div class="info-item" v-if="config && (config.at1 || config.at2) ">
             <fa-icon icon="user-check" class="icon"></fa-icon>
             <div class="d-flex flex-column ml-2">
-                <span> <b>ATENCION PERSONALIZADA</b> </span>
-                <span> por whatsapp, lunes a sábado de 9hs a 18hs, mientras que en el showroom será de (9-15) para retirar los productos adquiridos.</span>
+               <span v-if="config.at1"> <b>{{config.at1}}</b> </span>
+                <span v-if="config.at2"> {{config.at2}} </span>
             </div>
         </div>
     </div>

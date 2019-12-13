@@ -1,8 +1,8 @@
 <template>
-    <div class="row mt-4 d-flex align-items-stretch">
-        <div v-for="product in offers" :key="product.id" class="col-12 col-lg-3 p-2 mt-2">
+    <div class="row mt-4 d-flex align-items-stretch" v-if="ordOffers">
+        <div v-for="product in ordOffers" :key="product.id" class="col-12 col-lg-3 p-2 mt-2">
             <div class="shadow">
-                <productCard :product="product"></productCard>
+                <productCard :product="product" />
             </div>
         </div>
     </div>
@@ -10,11 +10,18 @@
 
 <script>
 import productCard from '../category/product/card.vue';
-export default{
+export default {
     components:{productCard},
     computed:{
         offers(){
+
             return this.$store.getters.getOffers;
+            
+        },
+        ordOffers(){
+            if(this.offers){
+                return this.orderArray(this.offers,'prio');
+            }   
         },
         categories(){
             return this.$store.getters.getCategories;
@@ -32,6 +39,9 @@ export default{
             return res;
             
         }
+    },
+    mounted(){
+        
     }
 }
 </script>

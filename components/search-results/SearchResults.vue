@@ -1,9 +1,9 @@
 <template>
     <div class="row" v-if="filteredProducts">
-        <div v-for="product in filteredProducts" 
+        <div v-for="product in notPaused(filteredProducts)" 
                   :key="product.name" 
-                  class=" flex-wrap col-12 col-lg-3 p-lg-4" >
-               <product-card :product="product"></product-card>
+                  class=" flex-wrap col-12 col-lg-3 p-lg-4 " >
+               <product-card :product="product" class="shadow"></product-card>
         </div>
     </div>
 </template>
@@ -46,13 +46,13 @@ export default {
                  this.products.forEach(prod => {
                      let include = true;
                      terms.forEach(term => {
-                         if (include && !this.searchComparision(term,prod))
+                         if (include && !this.searchComparision(term,prod) )
                          {
                            
                              include = false;
                          }
                      });
-                     if (include){
+                     if (include && !prod.paused){
                          res.push(prod);
                      }
                  });
@@ -68,7 +68,7 @@ export default {
 
                   let cate = this.categories.find(c => {
                       
-                      return c.id === prod.category_id;
+                      return c.id === prod.category_id && !c.paused;
                   });
                 
                  
@@ -78,6 +78,7 @@ export default {
                     let code = prod.code.toLowerCase().trim();
 
                     if (
+
                         prodName.indexOf(term) > -1
                         || categoryName.indexOf(term) > -1
                         || code.indexOf(term) > -1

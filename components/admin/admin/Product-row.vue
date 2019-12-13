@@ -13,7 +13,13 @@
                     <img v-else :src="noImage" :alt="product.name"  @click="imgModal(product)">
                 </div>
             </td>
-             <td colspan="6">
+            <td colspan="1">
+                <div class="fcc">
+                    <span>Prioridad</span>
+                    <input type="number" class="form-control text-center" v-model.lazy="product.prio" @change="saveChange(product,'prio')" > 
+                </div>
+            </td>
+             <td colspan="5">
                 <textarea placeholder="NOMBRE" rows="1" type="text" v-model.lazy="product.name" 
                 @change="saveChange(product,'name')" class="w-100 form-control"></textarea>
             </td>
