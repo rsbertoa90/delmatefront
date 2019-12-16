@@ -43,6 +43,7 @@ import {
   faArrowLeft,
   faChevronDown,
   faAward,
+  faUser,
   faUserCog,
   faPlus,
   faMinus,
@@ -63,6 +64,7 @@ import {
 
 
 library.add(faPauseCircle,faSignOutAlt,
+  faUser,
   faTh,
   faListUl,
   faArrowUp,

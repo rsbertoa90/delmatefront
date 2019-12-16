@@ -14,6 +14,11 @@
                                 <fa-icon icon="shopping-cart"></fa-icon> Cotizador 
                             </router-link>
                         </li>
+                        <li class="nav-item text-white" >
+                            <router-link class="nav-link text-white" to="/contacto">
+                                <fa-icon icon="user"></fa-icon> Contacto 
+                            </router-link>
+                        </li>
                         <li class="nav-item text-white" v-if="config && !config.hide_prices">
                              <a class="nav-link text-white" target="_blank" href="/descargar-lista-de-precios" >
                                 <fa-icon icon="download"></fa-icon> Lista de precios

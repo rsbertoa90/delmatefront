@@ -12,6 +12,11 @@
                 <fa-icon icon="shopping-cart"></fa-icon> Cotizador 
             </router-link>
         </li>
+        <li  class="nav-item text-white" :class="{'focus':path=='/cotizador'}">
+            <router-link class="nav-link " to="/contacto">
+                <fa-icon icon="user"></fa-icon> Contacto 
+            </router-link>
+        </li>
 
         <li class="nav-item text-white"  v-if="!hidePrices">
             <a class="nav-link " target="_blank" href="/descargar-lista-de-precios" >
