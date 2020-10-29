@@ -66,8 +66,8 @@
                         <tbody>
                             <tr v-for="op in order.order_products"
                                 :key="'op'+op.product_id">
-                                <td> {{op.product.code}} </td>
-                                <td> {{op.product.name}} </td>
+                                <td> {{op.product ? op.product.code : 'id #'+op.product_id}} </td>
+                                <td> {{op.product ? op.product.name : 'producto no encontrado'}} </td>
                                 <td> ${{op.price | price}} </td>
                                 <td> {{op.units}} </td>
                                 <td> ${{op.units * op.price | price}} </td>
